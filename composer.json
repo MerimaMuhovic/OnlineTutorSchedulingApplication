@@ -1,16 +1,14 @@
 {
-    "name": "mikecao/online-tutor-scheduling",
-    "license": "apache2",
-    "autoload": {
-        "psr-4": {
-            "Mikecao\\OnlineTutorScheduling\\": "src/"
-        }
-    },
+    "name": "ibu/onlinetutoring",
+    "description": "Online Tutoring System",
+    "license": "Apache2",
     "authors": [
         {
             "name": "Merima Muhovic",
             "email": "merima.muhovic@stu.ibu.edu.ba"
         }
     ],
-    "require": {}
+    "require": {
+        "mikecao/flight": "^2.0"
+    }
 }
