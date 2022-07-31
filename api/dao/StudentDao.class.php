@@ -16,6 +16,11 @@ class StudentDao extends BaseDao {
     public function update_student_by_email($email, $student){
         $this->update("students", $email, $student, "email");
     }
+
+    public function get_student_by_token($token){
+        return $this->query_unique("SELECT * FROM students WHERE token = :token", ["token" => $token]);
+
+    }
 }
 
 ?>
