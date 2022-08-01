@@ -1,14 +1,11 @@
 <!-- HTML for static distribution bundle build -->
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
-    <title>Online Tutor Scheduling</title>
+    <title>Autoresponder API</title>
     <link rel="stylesheet" type="text/css" href="swagger-ui.css">
-    <link rel="stylesheet" type="text/css" href="custom-swagger.css">
     <link rel="icon" type="image/png" href="favicon-32x32.png" sizes="32x32" />
-    <link rel="icon" type="image/png" href="/favicon-16x16.png" sizes="16x16" />
     <style>
         html {
             box-sizing: border-box;
@@ -31,14 +28,12 @@
 
 <body>
     <div id="swagger-ui"></div>
-
     <script src="swagger-ui-bundle.js"> </script>
     <script src="swagger-ui-standalone-preset.js"> </script>
     <script>
         window.onload = function () {
-            // Begin Swagger UI call region
             const ui = SwaggerUIBundle({
-                url: "http://localhost/onlinetutor/api/test.php",
+                url: "//<?=$_SERVER['SERVER_NAME']?><?=str_replace("/docs/", "/swagger", $_SERVER['REQUEST_URI'])?>",
                 dom_id: '#swagger-ui',
                 deepLinking: true,
                 presets: [
@@ -50,8 +45,6 @@
                 ],
                 layout: "StandaloneLayout"
             })
-            // End Swagger UI call region
-
             window.ui = ui
         }
     </script>

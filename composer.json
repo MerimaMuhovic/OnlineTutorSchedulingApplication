@@ -10,7 +10,7 @@
     ],
     "require": {
         "mikecao/flight": "^2.0",
-        "zircote/swagger-php": "^4.4",
+        "zircote/swagger-php": "^3.0",
         "jfcherng/php-mb-string": "^1.4",
         "hulang/php-zip": "^1.0",
         "swiftmailer/swiftmailer": "6.0",

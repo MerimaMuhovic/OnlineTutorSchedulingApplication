@@ -61,9 +61,9 @@ class BaseDao {
         return reset($results);
     }
 
-    public function add($entity) {
+    public function add($entity){
         return $this->insert($this->table, $entity);
-    }
+      }
 
     public function update($id, $entity) {
         $this->execute_update($this->table, $id, $entity);

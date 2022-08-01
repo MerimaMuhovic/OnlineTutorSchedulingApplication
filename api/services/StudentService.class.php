@@ -5,6 +5,7 @@ require_once dirname(__FILE__).'/../dao/StudentDao.class.php';
 
 use \Firebase\JWT\JWT;
 
+
 class StudentService extends BaseService {
 
     public function __construct(){
@@ -31,7 +32,7 @@ class StudentService extends BaseService {
         $jwt = JWT::encode(["id" => $db_sudent["id"], 
                             "email" => $db_sudent["email"], 
                             "name" => $db_sudent["name"]],
-                            "JWT SECRET" );
+                            "JWT SECRET", "HS256" );
 
         return ["token" => $jwt];
 

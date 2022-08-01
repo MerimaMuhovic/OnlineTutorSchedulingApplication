@@ -16,6 +16,12 @@ class CourseService extends BaseService {
             return $this->dao->get_all($offset, $limit);
         }
     }
+
+    public function add($course) {
+        if(!isset($course["courseName"])) throw new Exception("Course Name is missing");
+        return parent::add($course);
+        
+    }
 }
 
 ?>
