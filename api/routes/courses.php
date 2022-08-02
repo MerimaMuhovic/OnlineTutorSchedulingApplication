@@ -10,7 +10,7 @@
  */
 
 /**
-* @OA\Get( path="/courses", tags={"courses"},
+* @OA\Get(path="/courses", tags={"courses"},
 *     @OA\Parameter(type="integer",in="query",name="offset",default=0, description ="Offset for pagination"),
 *     @OA\Parameter(type="integer",in="query",name="limit",default=25, description ="Limit for pagination"),
 *     @OA\Parameter(type="string",in="query",name="search", description ="Search for pagination"),
@@ -20,8 +20,9 @@
 Flight::route('GET /courses', function(){
 
     $offset = Flight::query('offset', 0);
-    $limit = Flight::query('limit', 5);
-    $search = Flight::query('search');
+    $limit = Flight::query('limit', 25);
+    $search = Flight::request()->query['search'];
+
 
     Flight::json(Flight::courseService()->get_courses($search, $offset , $limit));
 });

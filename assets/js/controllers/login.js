@@ -25,6 +25,7 @@ class Login {
       $("#register-form-container").addClass("hidden");
       $("#form-alert").removeClass("hidden")
       $("#form-alert .alert").html(data.message);
+      Login.show_login_form();
     });
   }
 

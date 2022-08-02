@@ -2,7 +2,7 @@
     <div class="container-fluid">
         <div class="row">
             <div class="col-lg-12">
-                <h1 class="page-header">Email Templates</h1>
+                <h1 class="page-header">Course Template</h1>
             </div>
             <!-- /.col-lg-12 -->
         </div>
@@ -20,9 +20,9 @@
                     <thead>
                         <tr>
                             <th>ID</th>
-                            <th>Name</th>
-                            <th>Subject</th>
-                            <th>Created At</th>
+                            <th>Course Name</th>
+                            <th>Description</th>
+                            <th>Tutors ID</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -49,20 +49,20 @@
             <input type="hidden" name="id" />
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                <h4 class="modal-title" id="myModalLabel">Add Email Template</h4>
+                <h4 class="modal-title" id="myModalLabel">Add Course Template</h4>
             </div>
             <div class="modal-body">
                   <div class="form-group">
-                      <label>Name</label>
-                      <input type="text" name="name" class="form-control" placeholder="Name of the email template" required minlength="3">
+                      <label>Course Name</label>
+                      <input type="text" name="name" class="form-control" placeholder="Enter Course Name" required minlength="3">
                   </div>
                   <div class="form-group">
-                      <label>Email Subject</label>
-                      <input type="text" name="subject" class="form-control" placeholder="Enter text" required minlength="3">
+                      <label> Enter your Tutors ID</label>
+                      <input type="text" name="subject" class="form-control" placeholder="Enter your Tutors ID" required>
                   </div>
 
                   <div class="form-group">
-                      <label>Email Body</label>
+                      <label>Description</label>
                       <textarea name="body" class="form-control" rows="10" required></textarea>
                   </div>
             </div>

@@ -5,7 +5,6 @@ require_once dirname(__FILE__).'/../dao/StudentDao.class.php';
 
 use \Firebase\JWT\JWT;
 
-
 class StudentService extends BaseService {
 
     public function __construct(){

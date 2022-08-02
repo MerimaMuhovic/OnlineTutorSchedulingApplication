@@ -7,7 +7,7 @@
         <meta name="description" content="">
         <meta name="author" content="">
 
-        <title>Autoresponder</title>
+        <title>Online Tutoring</title>
 
         <!-- DataTable CSS -->
         <link href="./assets/css/dataTables/dataTables.bootstrap.css" rel="stylesheet">
@@ -50,7 +50,7 @@
             <!-- Navigation -->
             <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
                 <div class="navbar-header">
-                    <a class="navbar-brand" href="index.html">Autoresponder</a>
+                    <a class="navbar-brand" href="index.html">Online Tutoring</a>
                 </div>
 
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
@@ -70,13 +70,6 @@
                             <li>
                               <a href="#"><i class="fa fa-user fa-fw"></i> User Profile</a>
                             </li>
-                            <li>
-                              <a href="#"><i class="fa fa-gear fa-fw"></i> Settings</a>
-                            </li>
-                            <li class="admin-stuff">
-                              <a href="admin.html"><i class="fa fa-users fa-fw"></i> Admin Panel</a>
-                            </li>
-
                             <li class="divider"></li>
                             <li>
                               <a href="#" onclick="doLogout()"><i class="fa fa-sign-out fa-fw"></i> Logout</a>
@@ -97,19 +90,13 @@
                                 <a href="#campaigns"><i class="fa fa-map-signs fa-fw"></i> Campaigns</a>
                             </li>
                             <li>
-                                <a href="#emails"><i class="fa fa-envelope-open fa-fw"></i> Emails</a>
+                                <a href="#emails"><i class="fa fa-envelope-open fa-fw"></i> Courses</a>
                             </li>
                             <li>
-                                <a href="#email-templates"><i class="fa fa-inbox fa-fw"></i> Email Templates</a>
-                            </li>
-                            <li>
-                                <a href="#settings"><i class="fa fa-cog fa-fw"></i> Settings</a>
+                                <a href="#email-templates"><i class="fa fa-inbox fa-fw"></i> Course Templates</a>
                             </li>
                             <li class="divider"></li>
 
-                            <li class="admin-stuff">
-                              <a href="admin.html"><i class="fa fa-users fa-fw"></i> Admin Panel</a>
-                            </li>
                         </ul>
                     </div>
                 </div>
@@ -119,7 +106,6 @@
               <section id="dashboard" data-load="dashboard.html"></section>
               <section id="emails" data-load="emails.html"></section>
               <section id="campaigns" data-load="campaigns.html"></section>
-              <section id="settings" data-load="settings.html"></section>
               <section id="email-templates" data-load="email-templates.html"></section>
             </main>
 
@@ -151,9 +137,9 @@
 
         <script src="./assets/js/utils.js"></script>
         <script src="./assets/js/restClient.js"></script>
-        <script src="./assets/js/controllers/emailsTemplates.js"></script>
+        <script src="./assets/js/controllers/course.js"></script>
 
-        <script src="//cdn.jsdelivr.net/npm/jquery-validation@1.19.3/dist/jquery.validate.min.js"></script>
+        <script src="//cdn.jsdelivr.net/npm/jquery-validation@1.19.5/dist/jquery.validate.min.js"></script>
         <script src="./assets/js/dataTables/jquery.dataTables.min.js"></script>
         <script src="./assets/js/dataTables/dataTables.bootstrap.min.js"></script>
         <script src="//cdn.datatables.net/responsive/2.2.7/js/dataTables.responsive.min.js"></script>
@@ -161,7 +147,7 @@
         <script type="text/javascript">
           $(document).ready(function() {
             var app = $.jQuerySPApp({defaultView  : "dashboard"}); // initialize
-            app.route({view : "email-templates", load : "email-templates.html", onReady: function() { EmailTemplate.init() }});
+            app.route({view : "email-templates", load : "email-templates.html", onReady: function() { CourseTemplate.init() }});
 
             app.run();
 

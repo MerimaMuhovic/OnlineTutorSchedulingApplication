@@ -49,14 +49,25 @@ Flight::route('POST /students/login', function(){
     Flight::json(Flight::studentService()->login($data));
 });
 
-
+/**
+ * @OA\Get(path="/confirm/confirm/{token}", tags={"students"},
+ *     @OA\Parameter(type="string", in="path", name="token", default=123, description="Temporary token for activating account"),
+ *     @OA\Response(response="200", description="Message upon successfull activation.")
+ * )
+ */
 Flight::route('GET /students/confirm/@token', function($token){
     Flight::studentService()->confirm($token);
     Flight::json(["message" => "Token is valid"]);
 });
 
+/**
+ * @OA\Get( path="/students/{id}", tags={"students"},  security={{"ApiKeyAuth": {}}},
+ *     @OA\Parameter(@OA\Schema(type="integer"),in="path", allowReserved=true,name="id",example="1"),
+ *     @OA\Response(response="200", description="Get students by id"),
+ * )
+ */
 Flight::route('GET /students/@id', function($id){
-    Flight::json(Flight::studentService() -> get_by_id($id));
+    Flight::json(Flight::studentService()->get_by_id($id));
 });
 
 ?>

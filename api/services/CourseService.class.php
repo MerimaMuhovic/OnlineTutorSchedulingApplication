@@ -10,7 +10,7 @@ class CourseService extends BaseService {
     }
 
     public function get_courses($search, $offset , $limit) {
-        if ($search){
+        if ($search){   
             return $this->dao->get_courses($search, $offset, $limit);
         }else{
             return $this->dao->get_all($offset, $limit);
@@ -18,9 +18,8 @@ class CourseService extends BaseService {
     }
 
     public function add($course) {
-        if(!isset($course["courseName"])) throw new Exception("Course Name is missing");
+        if(!isset($course["name"])) throw new Exception("Course Name is missing");
         return parent::add($course);
-        
     }
 }
 
