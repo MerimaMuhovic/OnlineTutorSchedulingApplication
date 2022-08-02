@@ -11,10 +11,6 @@ require dirname(__FILE__).'/dao/CourseDao.class.php';
 require dirname(__FILE__).'/services/CourseService.class.php';
 require dirname(__FILE__).'/services/StudentService.class.php';
 
-Flight::map('error', function(Exception $ex){
-  Flight::json(["message" => $ex->getMessage()], $ex->getCode() ? $ex->getCode() : 500);
-});
-
 /* utility function for reading query parameters from URL */
 Flight::map('query', function($name, $default_value = NULL){
     $request = Flight::request();

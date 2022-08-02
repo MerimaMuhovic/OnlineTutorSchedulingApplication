@@ -3,7 +3,6 @@ class CourseTemplate {
     static init(){
       $("#add-email-template").validate({
         submitHandler: function(form, event) {
-          event.preventDefault();
           var data = AUtils.form2json($(form));
           if (data.id){
             CourseTemplate.update(data);
@@ -12,7 +11,6 @@ class CourseTemplate {
           }
         }
       });
-      AUtils.role_based_elements();
       CourseTemplate.get_all();
     }
 
