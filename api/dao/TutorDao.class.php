@@ -7,15 +7,18 @@ class TutorDao extends BaseDao {
     public function __construct(){
         parent::__construct("tutors");
     }
+    
+    public function get_tutors($search, $offset, $limit){        
+        return $this->query("SELECT *
+                             FROM tutors
+                             WHERE LOWER(name) LIKE CONCAT('%', :name, '%')
+                             LIMIT ${limit} OFFSET ${offset}",
+                             ["name" => strtolower($search)]);
+      }
 
-    public function get_tutor_by_email($email) {
-        return $this-> query_unique("SELECT * FROM tutors WHERE email = :email", ["email" => $email]);
-
-    }
-
-    public function update_tutor_by_email($email, $tutor){
-        $this->update("tutors", $email, $tutor, "email");
-    }
+    //   public function delete_courses($id) {
+    //     return $this->query("DELETE * FROM ".$this->table. " WHERE id = :id", ["id" => $id]);
+    //   }
 }
 
 ?>

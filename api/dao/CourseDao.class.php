@@ -15,6 +15,10 @@ class CourseDao extends BaseDao {
                              LIMIT ${limit} OFFSET ${offset}",
                              ["courseName" => strtolower($search)]);
       }
+
+    //   public function delete_courses($id) {
+    //     return $this->query("DELETE * FROM ".$this->table. " WHERE id = :id", ["id" => $id]);
+    //   }
 }
 
 ?>

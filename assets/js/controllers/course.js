@@ -100,4 +100,5 @@ class CourseTemplate {
           $("#add-email-template-modal").modal("show");
         });
       }
+
   }

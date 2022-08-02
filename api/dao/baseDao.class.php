@@ -19,6 +19,7 @@ class BaseDao {
     }
     
     protected function insert($table, $entity){
+         
         $query = "INSERT INTO ${table} (";
         foreach ($entity as $column => $value) {
             $query .= $column.", ";
@@ -30,7 +31,7 @@ class BaseDao {
         }
         $query = substr($query, 0,-2);
         $query .=")";
-
+        
         $stmt = $this-> connection-> prepare($query);
         $stmt->execute($entity);
         $entity["id"] = $this -> connection -> lastInsertId();
@@ -62,7 +63,7 @@ class BaseDao {
     }
 
     public function add($entity){
-        return $this->insert($this->table, $entity);
+      return $this->insert($this->table, $entity);
       }
 
     public function update($id, $entity) {
@@ -72,6 +73,12 @@ class BaseDao {
     public function get_by_id($id) {
         return $this->query_unique("SELECT * FROM ".$this->table. " WHERE id = :id", ["id" => $id]);
     }
+
+    public function delete($id){
+        $stmt = $this->conn->prepare("DELETE FROM ".$this->table_name." WHERE id=:id");
+        $stmt->bindParam(':id', $id); // SQL injection prevention
+        $stmt->execute();
+      }
 
     public function get_all($offset = 0, $limit = 20) {
         return $this-> query("SELECT * FROM ". $this->table." LIMIT ${limit} OFFSET ${offset} " , []);

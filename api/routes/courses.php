@@ -76,4 +76,26 @@ Flight::route('PUT /courses/@id', function($id) {
     Flight::json(Flight::courseService()->update($id, $data));
 });
 
+/**
+* @OA\Delete(
+*     path="/courses/{id}", security={{"ApiKeyAuth": {}}},
+*     description="Soft delete courses",
+*     tags={"courses"},
+*     @OA\Parameter(in="path", name="id", example=1, description="Note ID"),
+*     @OA\Response(
+*         response=200,
+*         description="Note deleted"
+*     ),
+*     @OA\Response(
+*         response=500,
+*         description="Error"
+*     )
+* )
+*/
+
+Flight::route('DELETE /courses/@id', function($id){
+    Flight::courseService()->delete(Flight::get('user'), $id);
+    Flight::json(["message" => "deleted"]);
+  });
+
 ?>

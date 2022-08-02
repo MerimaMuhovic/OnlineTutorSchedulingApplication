@@ -10,10 +10,8 @@ require dirname(__FILE__).'/dao/StudentDao.class.php';
 require dirname(__FILE__).'/dao/CourseDao.class.php';
 require dirname(__FILE__).'/services/CourseService.class.php';
 require dirname(__FILE__).'/services/StudentService.class.php';
+require dirname(__FILE__).'/services/TutorService.class.php';
 
-Flight::map('error', function(Exception $ex){
-  Flight::json(["message" => $ex->getMessage()], $ex->getCode() ? $ex->getCode() : 500);
-});
 
 /* utility function for reading query parameters from URL */
 Flight::map('query', function($name, $default_value = NULL){
@@ -36,10 +34,12 @@ Flight::map('query', function($name, $default_value = NULL){
 /* Register Business Logic layer services */
 Flight::register('courseService', 'CourseService');
 Flight::register('studentService', 'StudentService');
+Flight::register('tutorService', 'TutorService');
 
 /* Include all routes */
 require_once dirname(__FILE__)."/routes/students.php";
 require_once dirname(__FILE__)."/routes/middleware.php";
+require_once dirname(__FILE__)."/routes/tutors.php";
 require_once dirname(__FILE__)."/routes/courses.php"; 
 
 Flight::start();
