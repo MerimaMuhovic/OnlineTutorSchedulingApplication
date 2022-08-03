@@ -28,12 +28,13 @@ class StudentService extends BaseService {
             
         if ($db_sudent['password'] != md5($student['password'])) throw new Exception("Invalid password", 400);
 
-        $jwt = JWT::encode(["id" => $db_sudent["id"], 
+          $jwt = JWT::encode(["id" => $db_sudent["id"], 
                             "email" => $db_sudent["email"], 
                             "name" => $db_sudent["name"]],
-                            "JWT SECRET", "HS256" );
-
+                            "JWT SECRET", "HS256" );  
+                            
         return ["token" => $jwt];
+
 
     }
     public function confirm($token){

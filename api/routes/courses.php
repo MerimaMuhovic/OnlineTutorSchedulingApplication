@@ -10,7 +10,7 @@
  */
 
 /**
-* @OA\Get(path="/courses", tags={"courses"},
+* @OA\Get(path="/courses", tags={"courses"}, security={{"ApiKeyAuth": {}}},
 *     @OA\Parameter(type="integer",in="query",name="offset",default=0, description ="Offset for pagination"),
 *     @OA\Parameter(type="integer",in="query",name="limit",default=25, description ="Limit for pagination"),
 *     @OA\Parameter(type="string",in="query",name="search", description ="Search for pagination"),
@@ -38,7 +38,7 @@ Flight::route('GET /courses/@id', function($id){
 });
 
 /**
-* @OA\Post( path="/courses", tags={"courses"},
+* @OA\Post( path="/courses", tags={"courses"}, security={{"ApiKeyAuth": {}}},
 * @OA\RequestBody(description="Course info",required=true,
 *       @OA\MediaType(mediaType="application/json",
 *    	     @OA\Schema(
@@ -57,7 +57,7 @@ Flight::route('POST /courses', function(){
 });
 
 /**
- * @OA\Put( path="/courses/{id}", tags={"courses"},
+ * @OA\Put( path="/courses/{id}", tags={"courses"}, security={{"ApiKeyAuth": {}}},
  *     @OA\Parameter(@OA\Schema(type="integer"),in="path",name="id",default="1", description="Id of account"),
  * @OA\RequestBody(description="Info is going to be updated ",required=true,
 *       @OA\MediaType(mediaType="application/json",

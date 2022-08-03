@@ -17,6 +17,8 @@ class Config {
       public static function DB_PORT(){
         return Config::get_env("DB_PORT", "3306");
       }
+      
+      const JWT_SECRET = "y4KvQcZVqn3F7uxQvcFk";
 
       public static function get_env($name, $default){
         return isset($_ENV[$name]) && trim($_ENV[$name]) != '' ? $_ENV[$name] : $default;

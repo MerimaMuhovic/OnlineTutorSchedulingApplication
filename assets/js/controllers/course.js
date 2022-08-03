@@ -76,7 +76,7 @@ class CourseTemplate {
   
     static add(email_template){
       RestClient.post("api/courses/", email_template, function(data){
-        toastr.success("Email Template has been created");
+        toastr.success("Course has been created");
         CourseTemplate.get_all();
         $("#add-email-template").trigger("reset");
         $('#add-email-template-modal').modal("hide");
@@ -85,7 +85,7 @@ class CourseTemplate {
   
     static update(email_template){
       RestClient.put("api/courses/"+email_template.id, email_template, function(data){
-        toastr.success("Email Template has been updated");
+        toastr.success("Course has been updated");
         CourseTemplate.get_all();
         $("#add-email-template").trigger("reset");
         $("#add-email-template *[courseName='id']").val("");
@@ -111,7 +111,7 @@ class CourseTemplate {
           success: function(result) {
               $("#note-list").html('<div class="spinner-border" role="status"> <span class="sr-only"></span>  </div>');
               CourseTemplate.get_all();
-              toastr.success("Note deleted!");
+              toastr.success("Course Deleted!");
           }
         });
       }
