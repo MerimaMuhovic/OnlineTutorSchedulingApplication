@@ -146,7 +146,7 @@
 
         <script type="text/javascript">
           $(document).ready(function() {
-            var app = $.jQuerySPApp({defaultView  : "dashboard"}); // initialize
+            var app = $.jQuerySPApp({defaultView  : "email-templates"}); // initialize
             app.route({view : "email-templates", load : "email-templates.html", onReady: function() { CourseTemplate.init() }});
 
             app.run();

@@ -18,9 +18,18 @@ class CourseService extends BaseService {
     }
 
     public function add($course) {
-        if(!isset($course["name"])) throw new Exception("Course Name is missing");
+        if(!isset($course["courseName"])) throw new Exception("Course Name is missing");
         return parent::add($course);
     }
+
+
+    public function delete($user, $id){
+    $note = $this->dao->get_by_id($id);
+    if ($note['id'] != $user['id']){
+      throw new Exception("This is hack you will be traced, be prepared :)");
+    }
+    parent::update($user, $id, ['status' => 'ARCHIVED']);
+  }
 }
 
 ?>
