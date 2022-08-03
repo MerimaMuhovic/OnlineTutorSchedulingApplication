@@ -4,8 +4,8 @@ class BaseService {
 
   protected $dao;
 
-  public function get_by_id($user , $id){
-    return $this->dao->get_by_id($user, $id);
+  public function get_by_id($id){
+    return $this->dao->get_by_id($id);
   }
 
   public function add($data){
@@ -17,9 +17,6 @@ class BaseService {
     return $this->dao->get_by_id($id);
   }
 
-  public function delete($id, $data){
-    return $this->dao->delete($id);
-  }
 
 }
 ?>

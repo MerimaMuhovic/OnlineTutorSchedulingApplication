@@ -3,7 +3,8 @@
 /**
  * @OA\Info(title="Online Tutor API", version="0.1")
 *  @OA\OpenApi(
-*  @OA\Server(url="http://localhost/onlinetutor/api/",description="Development Enviroment")
+*  @OA\Server(url="http://localhost/onlinetutor/api/",description="Development Enviroment"),
+*    @OA\Server(url="https://lionfish-app-o8vkz.ondigitalocean.app/api/", description="Production Environment" )
  * ),
   * @OA\SecurityScheme(securityScheme="ApiKeyAuth", type="apiKey", in="header", name="Authentication" )
  

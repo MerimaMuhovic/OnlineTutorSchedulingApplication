@@ -3,8 +3,7 @@
 /**
  * @OA\Info(title="Online Tutor API", version="0.1")
 *  @OA\OpenApi(
-*  @OA\Server(url="http://localhost/onlinetutor/api/",description="Development Enviroment"),
- *    @OA\Server(url="https://lionfish-app-o8vkz.ondigitalocean.app/api/", description="Production Environment" )
+*  @OA\Server(url="http://localhost/onlinetutor/api/",description="Development Enviroment")
  * ),
   * @OA\SecurityScheme(securityScheme="ApiKeyAuth", type="apiKey", in="header", name="Authentication" )
  
@@ -95,7 +94,7 @@ Flight::route('PUT /courses/@id', function($id) {
 */
 
 Flight::route('DELETE /courses/@id', function($id){
-    Flight::courseService()->delete(Flight::get('user'), $id);
+    Flight::courseService()->delete($id);
     Flight::json(["message" => "deleted"]);
   });
 

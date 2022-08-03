@@ -63,7 +63,8 @@ class CourseTemplate {
         columns: [
               { "data": "id",
                 "render": function ( data, type, row, meta ) {
-                  return '<div style="min-width: 60px;"> <span class="badge">'+data+'</span><a class="pull-right" style="font-size: 15px; cursor: pointer;" onclick="CourseTemplate.pre_edit('+data+')"><i class="fa fa-edit"></i></a> </div>';
+                  return '<div style="min-width: 60px;"> <span class="badge">'+data+'</span><a class="pull-right" style="font-size: 15px; cursor: pointer;" onclick="CourseTemplate.pre_edit('+data+')"><i class="fa fa-edit"></i></a> </div>'+
+                  '<div style="min-width: 60px;"><a class="pull-right" style="font-size: 15px; cursor: pointer;" onclick="CourseTemplate.delete('+data+'); "><i class="fa fa-trash"></i></a> </div>';
                 }
               },
               { "data": "courseName" },
@@ -96,6 +97,22 @@ class CourseTemplate {
         RestClient.get("api/courses/"+id, function(data){
           AUtils.json2form("#add-email-template", data);
           $("#add-email-template-modal").modal("show");
+        });
+      }
+
+      static delete(id){
+        $('.note-button').attr('disabled', true);
+        $.ajax({
+          url: 'api/courses/'+id,
+          beforeSend: function(xhr){
+            xhr.setRequestHeader('Authorization', localStorage.getItem('token'));
+          },
+          type: 'DELETE',
+          success: function(result) {
+              $("#note-list").html('<div class="spinner-border" role="status"> <span class="sr-only"></span>  </div>');
+              CourseTemplate.get_all();
+              toastr.success("Note deleted!");
+          }
         });
       }
 

@@ -22,14 +22,10 @@ class CourseService extends BaseService {
         return parent::add($course);
     }
 
-
-    public function delete($user, $id){
-    $note = $this->dao->get_by_id($id);
-    if ($note['id'] != $user['id']){
-      throw new Exception("This is hack you will be traced, be prepared :)");
-    }
-    parent::update($user, $id, ['status' => 'ARCHIVED']);
+    public function delete($id){
+        $this->dao->delete($id);
   }
+  
 }
 
 ?>
