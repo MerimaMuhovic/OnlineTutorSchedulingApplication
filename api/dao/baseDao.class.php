@@ -8,15 +8,16 @@ class BaseDao {
 
     private $table;
     
-    protected function __construct($table) {
+    public function __construct($table){
         $this->table = $table;
         try {
-            $this-> connection = new PDO("mysql:host=".Config::DB_HOST.";dbname=".Config::DB_SCHEME, Config::DB_USERNAME, Config::DB_PASSOWRD);
-            $this-> connection->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+          $this->connection = new PDO("mysql:host=".Config::DB_HOST().";port=".Config::DB_PORT().";dbname=".Config::DB_SCHEME(), Config::DB_USERNAME(), Config::DB_PASSWORD());
+          $this->connection->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+          //$this->connection->setAttribute(PDO::ATTR_AUTOCOMMIT, 0);
         } catch(PDOException $e) {
-            echo "Connection failed: " . $e->getMessage();
+          throw $e;
         }
-    }
+      }
     
     protected function insert($table, $entity){
          
