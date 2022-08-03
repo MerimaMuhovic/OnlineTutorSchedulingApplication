@@ -23,8 +23,9 @@ Flight::map('query', function($name, $default_value = NULL){
     return $query_param;
   });
 
+  /*
   // middleware method for login
-/*Flight::route('/*', function(){
+Flight::route('/*', function(){
   //return TRUE;
   //perform JWT decode
   $path = Flight::request()->url;
@@ -44,7 +45,8 @@ Flight::map('query', function($name, $default_value = NULL){
       return FALSE;
     }
   }
-}); */ 
+});  
+*/
 
   Flight::route('GET /swagger', function(){
     $openapi = @\OpenApi\scan(dirname(__FILE__)."/routes");

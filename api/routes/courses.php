@@ -9,6 +9,8 @@
  
  */
 
+
+
 /**
 * @OA\Get(path="/courses", tags={"courses"}, security={{"ApiKeyAuth": {}}},
 *     @OA\Parameter(type="integer",in="query",name="offset",default=0, description ="Offset for pagination"),
